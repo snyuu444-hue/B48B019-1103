@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>余昕玶 | Sin-Ping Yu</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <!-- Google Fonts: Noto Serif TC & Cormorant Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+TC:wght@300;400;600;700&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        paper: {
+                            50: '#FDFBF7',
+                            100: '#F5EFE6',
+                            200: '#EFE9D9',
+                        },
+                        ink: '#2C2A29',
+                        doodle: {
+                            yellow: '#E5A93C',
+                            coral: '#E07A5F',
+                            green: '#81B29A',
+                            blue: '#3D405B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Literary & Refined Font Enforcement */
+        *, *::before, *::after, html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, button, input, select, textarea, label {
+            font-family: 'Noto Serif TC', 'Shippori Mincho', 'Songti TC', 'PMingLiU', serif !important;
+        }
+
+        .font-en {
+            font-family: 'Cormorant Garamond', 'Georgia', serif !important;
+            font-style: italic;
+        }
+
+        .font-hand {
+            font-family: 'Zen Kurenaido', 'Noto Serif TC', serif !important;
+        }
+
+        /* Paper Texture & Dot Grid Background */
+        body {
+            background-color: #FDFBF7;
+            background-image: radial-gradient(#2C2A29 0.75px, transparent 0.75px), radial-gradient(#2C2A29 0.75px, #FDFBF7 0.75px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            color: #2C2A29;
+            overflow-x: hidden;
+            line-height: 1.75;
+            letter-spacing: 0.03em;
+        }
+
+        .hand-border {
+            border: 2px solid #2C2A29;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        }
+
+        .hand-border-sm {
+            border: 1.5px solid #2C2A29;
+            border-radius: 125px 10px 105px 10px / 10px 105px 10px 125px;
+        }
+
+        .washi-tape {
+            box-shadow: 0 2px 4px rgba(44, 42, 41, 0.08);
+            position: absolute;
+            z-index: 20;
+        }
+
+        .washi-tape-yellow {
+            background: rgba(229, 169, 60, 0.85);
+            clip-path: polygon(0% 12%, 4% 0%, 96% 0%, 100% 12%, 98% 88%, 100% 100%, 3% 96%, 0% 82%);
+        }
+
+        .washi-tape-coral {
+            background: rgba(224, 122, 95, 0.85);
+            clip-path: polygon(2% 0%, 98% 5%, 100% 92%, 95% 100%, 0% 90%);
+        }
+
+        .washi-tape-green {
+            background: rgba(129, 178, 154, 0.85);
+            clip-path: polygon(0% 10%, 95% 0%, 100% 85%, 5% 100%);
+        }
+
+        /* Polaroid Card Styles */
+        .polaroid-card {
+            background: #FFFFFF;
+            box-shadow: 4px 6px 14px rgba(44, 42, 41, 0.09);
+            border: 2.5px solid #2C2A29;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .polaroid-card:hover {
+            transform: translateY(-5px) scale(1.02) rotate(0deg) !important;
+            box-shadow: 6px 12px 24px rgba(44, 42, 41, 0.16);
+        }
+
+        /* Custom Hand-Drawn Scrollbar */
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5EFE6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5A93C;
+            border-radius: 4px;
+            border: 1px solid #2C2A29;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-doodle-yellow selection:text-ink">
+
+    <!-- Sticky Header Navigation with Active Underline -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-paper-50/90 backdrop-blur-md border-b-2 border-dashed border-ink">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo & Name -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <div class="px-3.5 py-1 bg-doodle-yellow text-ink text-2xl font-bold hand-border-sm transform -rotate-2 group-hover:rotate-2 transition-transform">
+                        余昕玶
+                    </div>
+                    <span class="text-2xl font-bold text-ink/80 font-en hidden sm:inline">Sin-Ping Yu</span>
+                </a>
+
+                <!-- Nav Items -->
+                <nav class="hidden md:flex items-center space-x-2">
+                    <a href="#home" class="nav-btn text-xl font-bold px-4 py-1.5 rounded-full text-ink hover:bg-doodle-yellow/30 transition-all relative">
+                        <span>首頁</span>
+                        <svg class="nav-underline absolute bottom-0 left-2 w-4/5 h-2 hidden" viewBox="0 0 100 20" fill="none"><path d="M5 15 Q 50 2, 95 15" stroke="#E5A93C" stroke-width="6" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="#about" class="nav-btn text-xl font-bold px-4 py-1.5 rounded-full text-ink hover:bg-doodle-green/30 transition-all relative">
+                        <span>關於我</span>
+                        <svg class="nav-underline absolute bottom-0 left-2 w-4/5 h-2 hidden" viewBox="0 0 100 20" fill="none"><path d="M5 15 Q 50 2, 95 15" stroke="#81B29A" stroke-width="6" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="#skills" class="nav-btn text-xl font-bold px-4 py-1.5 rounded-full text-ink hover:bg-doodle-coral/30 transition-all relative">
+                        <span>專業</span>
+                        <svg class="nav-underline absolute bottom-0 left-2 w-4/5 h-2 hidden" viewBox="0 0 100 20" fill="none"><path d="M5 15 Q 50 2, 95 15" stroke="#E07A5F" stroke-width="6" stroke-linecap="round"/></svg>
+                    </a>
+                    <a href="#life" class="nav-btn text-xl font-bold px-4 py-1.5 rounded-full text-ink hover:bg-doodle-blue/20 transition-all relative">
+                        <span>生活寫實</span>
+                        <svg class="nav-underline absolute bottom-0 left-2 w-4/5 h-2 hidden" viewBox="0 0 100 20" fill="none"><path d="M5 15 Q 50 2, 95 15" stroke="#3D405B" stroke-width="6" stroke-linecap="round"/></svg>
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-ink text-2xl focus:outline-none" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-paper-100 border-t-2 border-ink p-6 space-y-4 shadow-lg">
+            <a href="#home" class="mobile-link block text-xl font-bold text-ink hover:text-doodle-yellow">🏠 首頁</a>
+            <a href="#about" class="mobile-link block text-xl font-bold text-ink hover:text-doodle-green">🌿 關於我</a>
+            <a href="#skills" class="mobile-link block text-xl font-bold text-ink hover:text-doodle-coral">📐 專業</a>
+            <a href="#life" class="mobile-link block text-xl font-bold text-ink hover:text-doodle-blue">📸 生活寫實</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-20">
+
+        <!-- 1. Home Section (#home) -->
+        <section id="home" class="min-h-[calc(100vh-5rem)] flex items-center justify-center py-16 px-4 sm:px-6 relative">
+            <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Headline Content -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                    <h1 class="text-5xl sm:text-7xl font-black text-ink leading-tight">
+                        余昕玶
+                    </h1>
+                    <p class="text-3xl sm:text-4xl font-bold text-doodle-blue font-en">
+                        Sin-Ping Yu
+                    </p>
+                    <div class="inline-block px-5 py-2.5 bg-doodle-yellow/30 text-ink text-2xl font-bold hand-border-sm transform -rotate-1">
+                        ✨ 紀錄生活，探索與學習中
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                        <a href="#about" class="px-8 py-3 bg-doodle-yellow text-ink font-bold text-2xl hand-border hover:translate-y-[-2px] shadow-[4px_4px_0px_0px_rgba(44,42,41,1)] transition-all">
+                            了解更多 🌿
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Polaroid Photo Frame Avatar -->
+                <div class="md:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80">
+                        <!-- Washi Tape Decor -->
+                        <div class="washi-tape washi-tape-yellow -top-4 left-1/2 -translate-x-1/2 w-36 h-9"></div>
+
+                        <div class="polaroid-card p-4 pb-8 transform rotate-3 hover:rotate-0 transition-all">
+                            <div class="relative aspect-square rounded-sm overflow-hidden border-2 border-ink mb-4 bg-paper-200 flex items-center justify-center text-7xl select-none">
+                                <img src="images/6.jpg" alt="個人照片" class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-center">
+                                <p class="text-3xl font-bold text-ink">余昕玶</p>
+                                <p class="text-xl text-ink/70 font-en">Sin-Ping Yu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. About Me Section (#about) -->
+        <section id="about" class="py-20 px-4 sm:px-6 relative bg-paper-100/60 border-y-2 border-ink">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-4xl sm:text-5xl font-black text-ink">關於我</h2>
+                    <div class="w-28 h-2.5 mx-auto mt-2 bg-doodle-yellow/60 rounded-full transform -rotate-1"></div>
+                </div>
+
+                <!-- 3 Separate Hand-Drawn Cards with Washi Tape -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <div class="bg-white hand-border p-7 relative shadow-[5px_5px_0px_0px_rgba(44,42,41,1)] transform -rotate-1 hover:rotate-0 transition-transform">
+                        <div class="washi-tape washi-tape-coral -top-3.5 left-6 w-28 h-7"></div>
+                        <h3 class="text-2xl font-bold text-ink mb-3">👋 你好！</h3>
+                        <p class="text-ink/90 text-xl leading-relaxed">
+                            我是余昕玶，平時喜歡接觸新事物，也願意接受不同的挑戰。我重視與他人的溝通及團隊合作，遇到不懂的事情會主動學習、努力改善自己的不足。希望透過不斷累積經驗，提升自己的能力，在工作與生活中持續成長。
+                        </p>
+                    </div>
+
+                    <div class="bg-doodle-green/15 hand-border p-7 relative shadow-[5px_5px_0px_0px_rgba(44,42,41,1)] transform rotate-1 hover:rotate-0 transition-transform">
+                        <div class="washi-tape washi-tape-yellow -top-3.5 right-6 w-28 h-7"></div>
+                        <h3 class="text-2xl font-bold text-ink mb-3">💡 理念</h3>
+                        <p class="text-ink/90 text-xl leading-relaxed">
+                            我的人生理念是勇於嘗試新事物，不害怕遇到困難，並從每一次的經驗中學習與成長。我相信只要願意努力、持續進步，就能一步步實現自己的目標，也希望在追求自我成長的同時，能為身邊的人帶來正面的影響。。
+                        </p>
+                    </div>
+
+                    <div class="bg-white hand-border p-7 relative shadow-[5px_5px_0px_0px_rgba(44,42,41,1)] transform -rotate-1 hover:rotate-0 transition-transform">
+                        <div class="washi-tape washi-tape-green -top-3.5 left-6 w-28 h-7"></div>
+                        <h3 class="text-2xl font-bold text-ink mb-3">🌿 興趣</h3>
+                        <p class="text-ink/90 text-xl leading-relaxed">
+                            我的興趣是聽音樂、打鼓以及接觸新事物。平時喜歡透過音樂放鬆心情，也希望不斷提升自己的打鼓技巧。此外，我也喜歡探索不同的事物，從中學習新知識、培養自己的能力，讓生活更加充實有趣。。
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. Professional Section (#skills) - Single Consolidated Card -->
+        <section id="skills" class="py-20 px-4 sm:px-6 relative">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-4xl sm:text-5xl font-black text-ink">專長</h2>
+                    <div class="w-28 h-2.5 mx-auto mt-2 bg-doodle-coral/50 rounded-full transform rotate-1"></div>
+                </div>
+
+                <!-- Single Integrated Card -->
+                <div class="max-w-3xl mx-auto bg-white p-8 sm:p-12 hand-border relative shadow-[6px_6px_0px_0px_rgba(44,42,41,1)] transform hover:-translate-y-1 transition-transform">
+                    <div class="washi-tape washi-tape-yellow -top-4 left-1/2 -translate-x-1/2 w-44 h-8"></div>
+                    
+                    <h3 class="text-3xl sm:text-4xl font-bold text-ink mb-6 text-center">
+                        勇於挑戰    
+                    </h3>
+                    
+                    <p class="text-ink/90 text-2xl leading-relaxed mb-8 text-center sm:text-left">
+                        具備良好的溝通能力與團隊合作精神，能夠認真完成交辦的任務，並且願意主動學習新知識、提升自己的能力。面對不同的工作挑戰時，我會保持積極負責的態度，努力解決問題，並持續累積經驗，讓自己不斷進步。
+                    </p>
+                    
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <span class="px-4 py-2 bg-doodle-yellow/30 text-ink text-xl font-bold hand-border-sm">
+                            想像力
+                        </span>
+                        <span class="px-4 py-2 bg-doodle-green/30 text-ink text-xl font-bold hand-border-sm">
+                            抗壓性
+                        </span>
+                        <span class="px-4 py-2 bg-doodle-coral/30 text-ink text-xl font-bold hand-border-sm">
+                            溝通與執行
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. Life Section (#life) - Interactive Polaroid Cards with Lightbox -->
+        <section id="life" class="py-20 px-4 sm:px-6 relative bg-paper-100/80 border-t-2 border-ink">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <h2 class="text-4xl sm:text-5xl font-black text-ink">生活寫實</h2>
+                    <div class="w-28 h-2.5 mx-auto mt-2 bg-doodle-blue/30 rounded-full transform -rotate-1"></div>
+                </div>
+
+                <!-- 4 Tilted Polaroid Photo Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="polaroid-card p-3.5 transform -rotate-2 hover:rotate-0 cursor-pointer" onclick="openLightbox('深夜日常', '在魚中魚看鼠鼠')">
+                        <div class="h-48 bg-paper-200 border-2 border-ink overflow-hidden mb-3 flex items-center justify-center text-6xl select-none">
+                            <img src="images/66.jpg" alt="深夜日常" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-2xl font-bold text-center text-ink">深夜日常</p>
+                    </div>
+
+                    <div class="polaroid-card p-3.5 transform rotate-2 hover:rotate-0 cursor-pointer" onclick="openLightbox('騎車日常', '騎著夢中情車4RR 爽')">
+                        <div class="h-48 bg-paper-200 border-2 border-ink overflow-hidden mb-3 flex items-center justify-center text-6xl select-none">
+                            <img src="images/666.jpg" alt="騎車日常" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-2xl font-bold text-center text-ink">騎車日常</p>
+                    </div>
+
+                    <div class="polaroid-card p-3.5 transform -rotate-1 hover:rotate-0 cursor-pointer" onclick="openLightbox('樂團表演', '實則緊張得要死')">
+                        <div class="h-48 bg-paper-200 border-2 border-ink overflow-hidden mb-3 flex items-center justify-center text-6xl select-none">
+                            <img src="images/6666.jpg" alt="樂團表演" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-2xl font-bold text-center text-ink">樂團表演</p>
+                    </div>
+
+                    <div class="polaroid-card p-3.5 transform rotate-1 hover:rotate-0 cursor-pointer" onclick="openLightbox('驚喜花花', '嘻嘻嘻很幸福')">
+                        <div class="h-48 bg-paper-200 border-2 border-ink overflow-hidden mb-3 flex items-center justify-center text-6xl select-none">
+                            <img src="images/66666.jpg" alt="驚喜花花" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-2xl font-bold text-center text-ink">驚喜花花</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-paper-200 border-t-2 border-ink py-10 px-4 text-center">
+            <div class="max-w-4xl mx-auto space-y-2">
+                <p class="text-ink text-xl font-bold font-en">
+                    &copy; 2026 余昕玶 Sin-Ping Yu. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Interactive Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm" onclick="closeLightbox()">
+        <div class="max-w-md w-full bg-white hand-border p-6 relative flex flex-col items-center shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-3 -right-3 w-10 h-10 bg-doodle-coral text-white font-bold border-2 border-ink rounded-full flex items-center justify-center text-xl hover:scale-110 transition-transform">
+                ✕
+            </button>
+            <div id="lightbox-emoji" class="w-full h-56 bg-paper-200 border-2 border-ink flex items-center justify-center text-7xl mb-4 select-none">
+                ☕
+            </div>
+            <p id="lightbox-title" class="text-3xl font-bold text-ink text-center mb-2"></p>
+            <p id="lightbox-desc" class="text-xl text-ink/80 text-center"></p>
+        </div>
+    </div>
+
+    <!-- Scrollspy & Lightbox Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function openLightbox(emoji, title, desc) {
+            document.getElementById('lightbox-emoji').innerText = emoji;
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-desc').innerText = desc || '';
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        window.addEventListener('scroll', () => {
+            let current = 'home';
+            const sections = document.querySelectorAll('section');
+            const navBtns = document.querySelectorAll('.nav-btn');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= (sectionTop - 140)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navBtns.forEach(btn => {
+                const underline = btn.querySelector('.nav-underline');
+                if (underline) underline.classList.add('hidden');
+                
+                if (btn.getAttribute('href') === `#${current}`) {
+                    if (underline) underline.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
